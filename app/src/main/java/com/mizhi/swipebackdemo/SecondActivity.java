@@ -3,8 +3,6 @@ package com.mizhi.swipebackdemo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,7 +13,7 @@ import android.widget.Button;
  * Created at 2018/3/28.
  */
 
-public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
+public class SecondActivity extends BaseActivity implements View.OnClickListener {
     private Button mButton;
     private SwipeBackController mSwipeBackController;
 
@@ -23,7 +21,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        mButton = findViewById(R.id.bt_tiaozhuan);
+        mButton = (Button) findViewById(R.id.bt_tiaozhuan);
         mButton.setOnClickListener(this);
         initData();
     }
@@ -37,11 +35,11 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         startActivity(new Intent(this, ThreeActivity.class));
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (mSwipeBackController.processEvent(event)) {
-            return true;
-        }
-        return super.onTouchEvent(event);
-    }
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        if (mSwipeBackController.processEvent(event)) {
+//            return true;
+//        }
+//        return super.onTouchEvent(event);
+//    }
 }
